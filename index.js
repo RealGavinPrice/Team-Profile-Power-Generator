@@ -1,6 +1,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
+const generateHTML = require('./src/generateHTML');
+
 let team = [];
 
 // Prompt for team manager's information
@@ -142,65 +144,18 @@ const internPrompt = () => {
     });
 };
 
-const generateHTML =  inquirer.prompt(questions).then((answers) => {
-    let html = `
-      <h1>Team Roster</h1>
-      <h2>Manager</h2>
-      <ul>
-        <li>Name: ${answers.managerName}</li>
-        <li>ID: ${answers.managerId}</li>
-        <li>Email: ${answers.managerEmail}</li>
-        <li>Office Number: ${answers.managerOfficeNumber}</li>
-      </ul>
-    `;
 
 
 
-
-    // <!DOCTYPE html>
-    // <html>
-    //   <head>
-    //     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    //     <link rel="stylesheet" type="text/css" href="team.css">
-    //   </head>
-    //   <body>
-    //     <div class="container-fluid">
-    //       <h1 class="text-center">Team Roster</h1>
-    //       <div class="row">
-    //         <div class="col-sm-4">
-    //           <div class="card">
-    //             <div class="card-header">
-    //               Manager
-    //             </div>
-    //             <ul class="list-group list-group-flush">
-    //               <li class="list-group-item">Name: John Smith</li>
-    //               <li class="list-group-item">ID: 1</li>
-    //               <li class="list-group-item">Email: johnsmith@example.com</li>
-    //               <li class="list-group-item">Office Number: 123</li>
-    //             </ul>
-    //           </div>
-    //         </div>
-    //         <div class="col-sm-4">
-    //           <div class="card">
-    //             <div class="card-header">
-    //               Engineer
-    //             </div>
-    //             <ul class="list-group list-group-flush">
-    //               <li class="list-group-item">Name: Jane Doe</li>
-    //               <li class="list-group-item">ID: 2</li>
-    //               <li class="list-group-item">Email: janedoe@
-
-
-
-
-  
-    fs.writeFile("team.html", html, function(err) {
+  const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
       if (err) {
         return console.log(err);
       }
       console.log("Team roster generated!");
     });
-  });
+  }
+  
 
   
   
