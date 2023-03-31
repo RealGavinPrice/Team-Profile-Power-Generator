@@ -1,7 +1,7 @@
 {
-  "name": "wordguess",
+  "name": "module_10_oop_team_profile_generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "A command line application to help manage team members",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
