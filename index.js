@@ -210,7 +210,7 @@ const writeFile = data => {
 }; 
 
 addManager()
-  .then(addEmplgitoyee)
+  .then(addEmployee)
   .then(teamArray => {
     return generateHTML(teamArray);
   })
